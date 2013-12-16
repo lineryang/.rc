@@ -72,7 +72,7 @@ set expandtab                                  " tabs are spaces, not tabs
 set scrolloff=3                                " minimum lines to keep above/below cursor
 set showmatch                                  " show matching brace when highlighting it
 set showcmd                                    " show command in last line of screen
-set formatoptions=rq
+" set formatoptions=rq
 set mouse=a                                    " mouse in terminal vim
 set nowrap                                     " text doesn't autowrap
 set pastetoggle=<F2>
