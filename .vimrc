@@ -1,37 +1,103 @@
-" URL: http://vim.wikia.com/wiki/Example_vimrc
-" Authors: http://vim.wikia.com/wiki/Vim_on_Freenode
-" Description: A minimal, but feature rich, example .vimrc. If you are a
-"              newbie, basing your first .vimrc on this file is a good choice.
-"              If you're a more advanced user, building your own .vimrc based
-"              on this file is still a good idea.
+" Author: Corinne Horn (chorn804@gmail.com)
+" Description: This file combines basic commands found in
+" http://vim.wikia.com/wiki/Example_vimrc, and useful bundles from Vundle.
 
-"------------------------------------------------------------
-" Features {{{1
-"
-" These options and commands enable some very useful features in Vim, that
-" no user should have to live without.
-
-" Set 'nocompatible' to ward off unexpected things that your distro might
-" have made, as well as sanely reset options when re-sourcing .vimrc
+" Vundle stuff
 set nocompatible
+filetype off        " required!
 
-" Attempt to determine the type of a file based on its name and possibly its
-" contents. Use this to allow intelligent auto-indenting for each filetype,
-" and for plugins that are filetype specific.
-filetype indent plugin on
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
-" Enable syntax highlighting
-syntax on
+" let Vundle manage Vundle required!
+Bundle 'gmarik/vundle'
+filetype plugin indent on
 
-"------------------------------------------------------------
-" Colors, indents, and line wrap (added by Corinne)
-let t_Co=256
+" Bundles
+" Bundle 'croaky/vim-colors-github'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'godlygeek/tabular'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-fugitive'
+Bundle 'bling/vim-airline'
+Bundle 'mileszs/ack.vim'
+Bundle 'LaTeX-Box-Team/LaTeX-Box'
+Bundle 'nathanaelkane/vim-indent-guides'
+" Bundle 'derekwyatt/vim-scala'
+" Bundle 'w0ng/vim-github-theme'
+" Bundle 'Lokaltog/powerline'
+
+
+" Colors, indents, and line wrap (for now, no macvim...)
+set bg=dark
 colorscheme solarized
 set tw=80
 set formatoptions+=t
 
-"------------------------------------------------------------
-" Centralize backups (added by Corinne)
+" Macvim (GUI vim)
+" let g:indent_guides_auto_colors = 0
+" let g:indent_guides_start_level = 2
+" let g:indent_guides_guide_size = 1
+" let g:indent_guides_enable_on_vim_startup=1
+" let g:indent_guides_color_change_percent=3
+"
+"
+" let g:solarized_bold=1
+" let g:solarized_italic=1
+" let g:solarized_underline=1
+"
+" if has('gui_macvim')                  " if has('gui_running')
+"     " best code font ever
+"     set guifont=Source\ Code\ Pro:h12 " ???
+"     set transparency=0
+"
+"     " color scheme
+"     colorscheme solarized
+"     set bg=light
+" else
+"     colorscheme solarized
+"     set bg=dark
+" endif
+
+" Basics
+set backspace=indent,eol,start
+let mapleader=','                              " set leader to ,
+syn on                                         " syntax highlighting
+set nu                                         " line numbers
+set tabstop=4                                  " size of tab
+set softtabstop=4                              " size of spaces-tabs
+set shiftwidth=4                               " shift size
+set autoindent                                 " indent at same level as previous line
+set expandtab                                  " tabs are spaces, not tabs
+set scrolloff=3                                " minimum lines to keep above/below cursor
+set showmatch                                  " show matching brace when highlighting it
+set showcmd                                    " show command in last line of screen
+set formatoptions=rq
+set mouse=a                                    " mouse in terminal vim
+set nowrap                                     " text doesn't autowrap
+set pastetoggle=<F2>
+set clipboard=unnamed                          " vim buffer and system clipboard are shared
+set t_Co=256                                   " 256 terminal colors
+set nospell                                    " no spellcheck
+set hidden                                     " lets you open other buffers without saving the current one
+set wildmenu                                   " shows list instead of just autocompleting
+set wildignore=*.swp,*.bak,*.pyc
+set incsearch                                  " find as you search
+set hlsearch                                   " highlight search
+set ignorecase                                 " ignore search case
+set foldmethod=indent                          " fold based on indents in code
+set smartcase
+"set list
+"set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+set termencoding=utf-8
+set encoding=utf-8
+set history=1000
+set undolevels=1000
+set laststatus=2                               " always show statusbar. useful when using powerline
+
+
+
+" Centralize backups
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
 if exists("&undodir")
@@ -40,66 +106,14 @@ endif
 set exrc  " allow for external .vimrc files (local)
 set secure " disable unsafe commands in them
 
-"------------------------------------------------------------
-" Must have options {{{1
-"
-" These are highly recommended options.
 
-" Vim with default settings does not allow easy switching between multiple files
-" in the same editor window. Users can use multiple split windows or multiple
-" tab pages to edit multiple files, but it is still best to enable an option to
-" allow easier switching between files.
-"
-" One such option is the 'hidden' option, which allows you to re-use the same
-" window and switch from an unsaved buffer without saving it first. Also allows
-" you to keep an undo history for multiple files when re-using the same window
-" in this way. Note that using persistent undo also lets you undo in multiple
-" files even in the same window, but is less efficient and is actually designed
-" for keeping undo history after closing Vim entirely. Vim will complain if you
-" try to quit without saving, and swap files will keep you safe if your computer
-" crashes.
-set hidden
 
-" Note that not everyone likes working this way (with the hidden option).
-" Alternatives include using tabs or split windows instead of re-using the same
-" window as mentioned above, and/or either of the following options:
-" set confirm
-" set autowriteall
-
-" Better command-line completion
-set wildmenu
-
-" Show partial commands in the last line of the screen
-set showcmd
-
-" Highlight searches (use <C-L> to temporarily turn off highlighting; see the
-" mapping of <C-L> below)
-set hlsearch
+" More complicated VIM settings...
 
 " Modelines have historically been a source of security vulnerabilities. As
 " such, it may be a good idea to disable them and use the securemodelines
 " script, <http://www.vim.org/scripts/script.php?script_id=1876>.
 " set nomodeline
-
-
-"------------------------------------------------------------
-" Usability options {{{1
-"
-" These are options that users frequently set in their .vimrc. Some of them
-" change Vim's behaviour in ways which deviate from the true Vi way, but
-" which are considered to add usability. Which, if any, of these options to
-" use is very much a personal preference, but they are harmless.
-
-" Use case insensitive search, except when using capital letters
-set ignorecase
-set smartcase
-
-" Allow backspacing over autoindent, line breaks and start of insert action
-set backspace=indent,eol,start
-
-" When opening a new line and no filetype-specific indenting is enabled, keep
-" the same indent as the line you're currently on. Useful for READMEs, etc.
-set autoindent
 
 " Stop certain movements from always going to the first character of a line.
 " While this behaviour deviates from that of Vi, it does what most users
@@ -109,9 +123,6 @@ set nostartofline
 " Display the cursor position on the last line of the screen or in the status
 " line of a window
 set ruler
-
-" Always display the status line, even if only one window is displayed
-set laststatus=2
 
 " Instead of failing a command because of unsaved changes, instead raise a
 " dialogue asking if you wish to save changed files.
@@ -125,15 +136,9 @@ set visualbell
 " is unset, this does nothing.
 set t_vb=
 
-" Enable use of the mouse for all modes
-set mouse=a
-
 " Set the command window height to 2 lines, to avoid many cases of having to
 " "press <Enter> to continue"
 set cmdheight=2
-
-" Display line numbers on the left
-set number
 
 " Quickly time out on keycodes, but never time out on mappings
 set notimeout ttimeout ttimeoutlen=200
@@ -141,27 +146,6 @@ set notimeout ttimeout ttimeoutlen=200
 " Use <F11> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F11>
 
-
-"------------------------------------------------------------
-" Indentation options {{{1
-"
-" Indentation settings according to personal preference.
-
-" Indentation settings for using 2 spaces instead of tabs.
-" Do not change 'tabstop' from its default value of 8 with this setup.
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-
-" Indentation settings for using hard tabs for indent. Display tabs as
-" two characters wide.
-"set shiftwidth=2
-"set tabstop=2
-
-
-"------------------------------------------------------------
-" Mappings {{{1
-"
 " Useful mappings
 
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
@@ -172,5 +156,40 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
+" fast buffer switching
+nnoremap <leader>n :bn<CR>
 
-"------------------------------------------------------------
+" Visual shifting (does not exit Visual mode)
+vnoremap < <gv
+vnoremap > >gv
+
+" code folding shortcuts
+
+" noh more easily
+nnoremap <leader><space> :noh<cr>
+
+" Tabularize
+nmap <Leader>a& :Tabularize /&<CR>
+vmap <Leader>a& :Tabularize /&<CR>
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:<CR>
+vmap <Leader>a: :Tabularize /:<CR>
+nmap <Leader>a:: :Tabularize /:\zs<CR>
+vmap <Leader>a:: :Tabularize /:\zs<CR>
+nmap <Leader>a, :Tabularize /,<CR>
+vmap <Leader>a, :Tabularize /,<CR>
+nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+nmap <Leader>a" :Tabularize /"<CR>
+vmap <Leader>a" :Tabularize /"<CR>
+nmap <Leader>a/ :Tabularize //<CR>
+vmap <Leader>a/ :Tabularize //<CR>
+nmap <Leader>a[ :Tabularize /[<CR>
+vmap <Leader>a[ :Tabularize /[<CR>
+nmap <Leader>a] :Tabularize /]<CR>
+vmap <Leader>a] :Tabularize /]<CR>
+nmap <Leader>a% :Tabularize /%<CR>
+nmap <Leader>a% :Tabularize /%<CR>
+vmap <Leader>a; :Tabularize /;<CR>
+vmap <Leader>a; :Tabularize /;<CR>
