@@ -11,6 +11,8 @@ ZSH_THEME="muse-corinne"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ipython="~/Library/Python/2.7/bin/ipython"
+alias julia="/Applications/Julia-0.2.0.app/Contents/Resources/julia/bin/julia"
+alias kona="ssh cehorn@kona.stanford.edu"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -46,4 +48,4 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/texbin
