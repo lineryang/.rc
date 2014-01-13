@@ -12,8 +12,8 @@ ZSH_THEME="muse-corinne"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ipython="~/Library/Python/2.7/bin/ipython"
 alias julia="/Applications/Julia-0.2.0.app/Contents/Resources/julia/bin/julia"
-alias kona="ssh cehorn@kona.stanford.edu"
-alias kona64="ssh cehorn@kona64.stanford.edu"
+alias kona="mosh cehorn@kona.stanford.edu"
+alias kona64="mosh cehorn@kona64.stanford.edu"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"

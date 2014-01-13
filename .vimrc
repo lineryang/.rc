@@ -96,7 +96,8 @@ set history=1000
 set undolevels=1000
 set laststatus=2                               " always show statusbar. useful when using powerline
 
-
+" Airline configuration
+let g:airline#extensions#tabline#enabled = 1
 
 " Centralize backups
 set backupdir=~/.vim/backups
