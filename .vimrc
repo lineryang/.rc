@@ -31,7 +31,7 @@ Bundle 'git://github.com/davidhalter/jedi-vim'
 
 " Colors, indents, and line wrap (for now, no macvim...)
 set bg=dark
-colorscheme solarized
+colorscheme solarized-corinne
 set tw=80
 set formatoptions+=t
 

@@ -175,7 +175,7 @@ let s:options_list=[
 let s:colorscheme_list=[
             \'syntax enable',
             \'set background='.&background,
-            \'colorscheme solarized',
+            \'colorscheme solarized-corinne',
             \]
 let s:defaults_list=[
             \'" ------------------------------------------------------------------',
@@ -229,7 +229,7 @@ hi clear
 if exists("syntax_on")
   syntax reset
 endif
-let colors_name = "solarized"
+let colors_name = "solarized-corinne"
 
 "}}}
 " GUI & CSApprox hexadecimal palettes"{{{
