@@ -11,9 +11,12 @@ ZSH_THEME="muse-corinne"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ipython="~/Library/Python/2.7/bin/ipython"
+# for running julia
 alias julia="/Applications/Julia-0.2.0.app/Contents/Resources/julia/bin/julia"
+# ssh into kona[64]
 alias kona="mosh cehorn@kona.stanford.edu"
 alias kona64="mosh cehorn@kona64.stanford.edu"
+# ssh into my trusty raspberry pi server, rusty
 alias rusty = "ssh 128.12.180.77"
 
 # Set to this to use case-sensitive completion
