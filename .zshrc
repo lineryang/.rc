@@ -14,6 +14,7 @@ alias ipython="~/Library/Python/2.7/bin/ipython"
 alias julia="/Applications/Julia-0.2.0.app/Contents/Resources/julia/bin/julia"
 alias kona="mosh cehorn@kona.stanford.edu"
 alias kona64="mosh cehorn@kona64.stanford.edu"
+alias rusty = "ssh 128.12.180.77"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
