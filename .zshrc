@@ -7,17 +7,19 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="muse-corinne"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# Language aliases
 alias ipython="~/Library/Python/2.7/bin/ipython"
-# for running julia
 alias julia="/Applications/Julia-0.2.0.app/Contents/Resources/julia/bin/julia"
+
 # ssh into kona[64]
 alias kona="mosh cehorn@kona.stanford.edu"
-alias kona64="mosh cehorn@kona64.stanford.edu"
+alias kona64="ssh cehorn@kona64.stanford.edu"
+
 # ssh into my trusty raspberry pi server, rusty
-alias rusty = "ssh 128.12.180.77"
+alias rusty="ssh corinne@128.12.180.77" # should make more permanent?
+
+# ssh into imac on campus
+alias imac="ssh cehorn@ee-imac-boyd.stanford.edu"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
