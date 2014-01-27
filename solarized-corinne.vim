@@ -674,6 +674,7 @@ exe "hi! Cursor"         .s:fmt_none   .s:fg_base03 .s:bg_base0
 hi! link lCursor Cursor
 exe "hi! MatchParen"     .s:fmt_bold   .s:fg_red    .s:bg_base01
 
+
 "}}}
 " vim syntax highlighting "{{{
 " ---------------------------------------------------------------------
@@ -818,6 +819,24 @@ exe "hi! texTodo"  .   s:fg_magenta   .s:bg_back  .s:fmt_none
 exe "hi! texType" .  s:fg_violet .s:bg_back .s:fmt_none
 " Unknown
 exe "hi! texRefLabel"    . s:fg_violet  .s:bg_back   .s:fmt_none
+
+
+"}}}
+" python syntax highlighting (Corinne) "{{{
+" --------------------------------------------------------------------
+"
+"  make this stuff bold (can remap colors later)
+"
+"
+exe "hi! pythonStatement" .     s:fg_blue .s:bg_back .s:fmt_bold
+exe "hi! pythonConditional"  .  s:fg_green  .s:bg_back .s:fmt_bold
+exe "hi! pythonRepeat"  .       s:fg_green    .s:bg_back .s:fmt_bold
+exe "hi! pythonOperator"  .     s:fg_green   .s:bg_back .s:fmt_bold
+exe "hi! pythonException"  .    s:fg_green   .s:bg_back .s:fmt_bold
+exe "hi! pythonInclude"  .      s:fg_red   .s:bg_back .s:fmt_bold
+exe "hi! pythonFunctin"  .      s:fg_green   .s:bg_back .s:fmt_bold
+exe "hi! pythonTodo"  .         s:fg_magenta   .s:bg_back .s:fmt_none
+
 
 
 "}}}
