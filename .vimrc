@@ -108,6 +108,11 @@ endif
 set exrc  " allow for external .vimrc files (local)
 set secure " disable unsafe commands in them
 
+" Map ,y to [copy to windows clipboard] and ,p to [paste from windows clipboard]
+" Allows for copying/pasting between vim instances
+vmap <silent> ,y y:new<CR>:call setline(1,getregtype())<CR>o<Esc>P:wq! ~/reg.txt<CR>
+nmap <silent> ,y :new<CR>:call setline(1,getregtype())<CR>o<Esc>P:wq! ~/reg.txt<CR>
+map <silent> ,p :sview ~/reg.txt<CR>"zdddG:q!<CR>:call setreg('"', @", @z)<CR>p
 
 
 " More complicated VIM settings...
