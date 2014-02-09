@@ -52,6 +52,17 @@ alias imac="ssh cehorn@ee-imac-boyd.stanford.edu"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git)
 
+# Handle tab titles
+export DISABLE_AUTO_TITLE="true"
+setTerminalText () {
+    # echo works in bash & zsh
+    local mode=$1 ; shift
+    echo -ne "\033]$mode;$@\007"
+}
+#stt_both  () { setTerminalText 0 $@; }
+sett   () { setTerminalText 1 $@; }
+#stt_title () { setTerminalText 2 $@; }
+
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
