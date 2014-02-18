@@ -110,10 +110,14 @@ set secure " disable unsafe commands in them
 
 " Map ,y to [copy to windows clipboard] and ,p to [paste from windows clipboard]
 " Allows for copying/pasting between vim instances
+" XXX Still needs to be fixed
 vmap <silent> ,y y:new<CR>:call setline(1,getregtype())<CR>o<Esc>P:wq! ~/reg.txt<CR>
 nmap <silent> ,y :new<CR>:call setline(1,getregtype())<CR>o<Esc>P:wq! ~/reg.txt<CR>
 map <silent> ,p :sview ~/reg.txt<CR>"zdddG:q!<CR>:call setreg('"', @", @z)<CR>p
 
+" Map ,cc to compile latex file, and ,co to compile latex file and open
+nmap <Leader>cc :!pdflatex %<CR><CR>
+nmap <Leader>co :!pdflatex %<CR><CR> :!open %:r.pdf<CR><CR>
 
 " More complicated VIM settings...
 
