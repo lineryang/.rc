@@ -111,13 +111,24 @@ set secure " disable unsafe commands in them
 " Map ,y to [copy to windows clipboard] and ,p to [paste from windows clipboard]
 " Allows for copying/pasting between vim instances
 " XXX Still needs to be fixed
-vmap <silent> ,y y:new<CR>:call setline(1,getregtype())<CR>o<Esc>P:wq! ~/reg.txt<CR>
-nmap <silent> ,y :new<CR>:call setline(1,getregtype())<CR>o<Esc>P:wq! ~/reg.txt<CR>
-map <silent> ,p :sview ~/reg.txt<CR>"zdddG:q!<CR>:call setreg('"', @", @z)<CR>p
+vmap <Leader>y y:new<CR>:call setline(1,getregtype())<CR>o<Esc>P:wq! ~/reg.txt<CR>
+nmap <Leader>y :new<CR>:call setline(1,getregtype())<CR>o<Esc>P:wq! ~/reg.txt<CR>
+map <Leader>p :sview ~/reg.txt<CR>"zdddG:q!<CR>:call setreg('"', @", @z)<CR>p
 
 " Map ,cc to compile latex file, and ,co to compile latex file and open
 nmap <Leader>cc :!pdflatex %<CR><CR>
 nmap <Leader>co :!pdflatex %<CR><CR> :!open %:r.pdf<CR><CR>
+
+" Map ,cm to commenting blocks of comments (dependent on file type).
+" Map ,xm to removing blocks of comments
+autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
+autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+autocmd FileType conf,fstab       let b:comment_leader = '# '
+autocmd FileType tex              let b:comment_leader = '% '
+autocmd FileType mail             let b:comment_leader = '> '
+autocmd FileType vim              let b:comment_leader = '" '
+vmap <Leader>cm :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+vmap <Leader>xm :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
 " More complicated VIM settings...
 
