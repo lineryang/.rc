@@ -135,10 +135,11 @@ vmap <Leader>xm :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//
 " bal[space, enter, comma] write the wrappers for align
 " bfig[space, enter, comma] write the wrappers for a figure
 autocmd BufNewFile,BufRead *.tex :ab bal \begin{align*}<CR>\end{align*}
-autocmd BufNewFile,BufRead *.tex :ab bfig \begin{figure}[htbp]<CR>\centering<CR>\includegraphics[width=4in]{}<CR>\caption{}<CR>\end{figure}
+autocmd BufNewFile,BufRead *.tex :ab bfig \begin{figure}[htb!]<CR>\centering<CR>\includegraphics[width=4in]{}<CR>\caption{}<CR>\end{figure}
 " This one is specialized for me
 autocmd BufNewFile,BufRead *.tex :ab bpap \documentclass[12pt]{article}<CR>\usepackage{fullpage,graphicx,psfrag,url,amsmath}<CR>\input defs<CR><CR>\title{}<CR>\author{Corinne Horn}<CR>\date{\today}<CR>\bibliographystyle{alpha}<CR><CR>\begin{document}<CR>\maketitle<CR><CR>\end{document}
 autocmd BufNewFile,BufRead *.tex :ab bdoc \documentclass[12pt]{article}<CR>\usepackage{fullpage,graphicx,psfrag,url,amsmath}<CR><CR>\begin{document}<CR><CR>\end{document}
+autocmd BufNewFile,BufRead *.tex :ab btab \begin{table}<CR>\centering<CR>\begin{tabular}{}<CR><CR><CR>\end{tabular}<CR>\caption{}<CR>\end{table}
 
 " More complicated VIM settings...
 
