@@ -139,7 +139,8 @@ autocmd BufNewFile,BufRead *.tex :ab bfig \begin{figure}[htb!]<CR>\centering<CR>
 " This one is specialized for me
 autocmd BufNewFile,BufRead *.tex :ab bpap \documentclass[12pt]{article}<CR>\usepackage{fullpage,graphicx,psfrag,url,amsmath}<CR>\input defs<CR><CR>\title{}<CR>\author{Corinne Horn}<CR>\date{\today}<CR>\bibliographystyle{alpha}<CR><CR>\begin{document}<CR>\maketitle<CR><CR>\end{document}
 autocmd BufNewFile,BufRead *.tex :ab bdoc \documentclass[12pt]{article}<CR>\usepackage{fullpage,graphicx,psfrag,url,amsmath}<CR><CR>\begin{document}<CR><CR>\end{document}
-autocmd BufNewFile,BufRead *.tex :ab btab \begin{table}<CR>\centering<CR>\begin{tabular}{}<CR><CR><CR>\end{tabular}<CR>\caption{}<CR>\end{table}
+autocmd BufNewFile,BufRead *.tex :ab btab \begin{table}[htb!]<CR>\centering<CR>\begin{tabular}{}<CR><CR><CR>\end{tabular}<CR>\caption{}<CR>\end{table}
+autocmd BufNewFile,BufRead *.tex :ab bver {\scriptsize\verbatimtabinput[4]{}}
 
 " More complicated VIM settings...
 
