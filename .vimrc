@@ -145,7 +145,7 @@ autocmd BufNewFile,BufRead *.tex :ab bver {\scriptsize\verbatimtabinput[4]{}}
 " create main function (only works on .py files)
 " bmain[space, enter, comma] write the wrappers for the main function
 autocmd BufNewFile,BufRead *.py :ab bmain if __name__ == '__main__':
-autocmd BufNewFile,BufRead *.py :ab bpath os.path.abspath(os.path.join(os.getcwd(), os.pardir))
+autocmd BufNewFile,BufRead *.py :ab bpath sys.path.append(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
 
 " More complicated VIM settings...
 
