@@ -144,7 +144,7 @@ autocmd BufNewFile,BufRead *.tex :ab bver {\scriptsize\verbatimtabinput[4]{}}
 
 " create main function (only works on .py files)
 " bmain[space, enter, comma] write the wrappers for the main function
-autocmd BufNewFile,BufRead *.py :ab bmain if __name__ == '__main__':<CR>
+autocmd BufNewFile,BufRead *.py :ab bmain if __name__ == '__main__':
 
 " More complicated VIM settings...
 
