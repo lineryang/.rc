@@ -10,6 +10,7 @@ ZSH_THEME="muse-corinne"
 # Language aliases
 #alias ipython="~/Library/Python/2.7/bin/ipython"
 alias julia="/Applications/Julia-0.2.0.app/Contents/Resources/julia/bin/julia"
+alias nosetests="~/Library/Python/2.7/bin/nosetests-2.7"
 
 # ssh into kona[64]
 alias kona="ssh cehorn@kona.stanford.edu"
@@ -26,6 +27,14 @@ alias charlene="ssh corinne@charlene"
 
 # path to macports
 alias port="/opt/local/bin/port"
+
+
+# Don't know why plugins doesn't work for me...
+plugins=(
+#    nosetests
+#    pip
+# any other plugins you want
+)
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -65,9 +74,7 @@ setTerminalText () {
     local mode=$1 ; shift
     echo -ne "\033]$mode;$@\007"
 }
-#stt_both  () { setTerminalText 0 $@; }
 sett   () { setTerminalText 1 $@; }
-#stt_title () { setTerminalText 2 $@; }
 
 source $ZSH/oh-my-zsh.sh
 
