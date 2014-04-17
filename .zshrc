@@ -26,15 +26,6 @@ alias imac="ssh cehorn@ee-imac-boyd.stanford.edu"
 alias charlene="ssh corinne@charlene"
 
 # path to macports
-alias port="/opt/local/bin/port"
-
-
-# Don't know why plugins doesn't work for me...
-plugins=(
-#    nosetests
-#    pip
-# any other plugins you want
-)
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -65,7 +56,7 @@ plugins=(
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git, pip, nosetests)
 
 # Handle tab titles
 export DISABLE_AUTO_TITLE="true"
@@ -79,4 +70,4 @@ sett   () { setTerminalText 1 $@; }
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/texbin
+export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/texbin:/opt/local/bin:/opt/local/sbin
