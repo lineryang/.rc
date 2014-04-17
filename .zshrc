@@ -8,11 +8,11 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="muse-corinne"
 
 # Language aliases
-alias ipython="~/Library/Python/2.7/bin/ipython"
+#alias ipython="~/Library/Python/2.7/bin/ipython"
 alias julia="/Applications/Julia-0.2.0.app/Contents/Resources/julia/bin/julia"
 
 # ssh into kona[64]
-alias kona="mosh cehorn@kona.stanford.edu"
+alias kona="ssh cehorn@kona.stanford.edu"
 alias kona64="ssh cehorn@kona64.stanford.edu"
 
 # ssh into my trusty raspberry pi server, rusty
@@ -20,6 +20,12 @@ alias rusty="ssh corinne@128.12.180.77" # should make more permanent?
 
 # ssh into imac on campus
 alias imac="ssh cehorn@ee-imac-boyd.stanford.edu"
+
+# ssh into charlene
+alias charlene="ssh corinne@charlene"
+
+# path to macports
+alias port="/opt/local/bin/port"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
