@@ -8,7 +8,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="muse-corinne"
 
 # Language aliases
-#alias ipython="~/Library/Python/2.7/bin/ipython"
+alias ipython="~/Library/Python/2.7/bin/ipython"
 alias julia="/Applications/Julia-0.2.0.app/Contents/Resources/julia/bin/julia"
 alias nosetests="~/Library/Python/2.7/bin/nosetests-2.7"
 
